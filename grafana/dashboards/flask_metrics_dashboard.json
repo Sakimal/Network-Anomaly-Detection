@@ -1,0 +1,51 @@
+{
+    "dashboard": {
+      "id": null,
+      "title": "Flask App Metrics",
+      "tags": [],
+      "timezone": "browser",
+      "schemaVersion": 16,
+      "version": 0,
+      "panels": [
+        {
+          "type": "graph",
+          "title": "Request Processing Time",
+          "gridPos": {
+            "x": 0,
+            "y": 0,
+            "w": 12,
+            "h": 8
+          },
+          "targets": [
+            {
+              "expr": "request_processing_seconds_sum",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "{{job}} - Processing Time",
+              "refId": "A"
+            }
+          ]
+        },
+        {
+          "type": "graph",
+          "title": "Request Count",
+          "gridPos": {
+            "x": 0,
+            "y": 8,
+            "w": 12,
+            "h": 8
+          },
+          "targets": [
+            {
+              "expr": "rate(request_processing_seconds_count[5m])",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "{{job}} - Request Rate",
+              "refId": "B"
+            }
+          ]
+        }
+      ]
+    }
+  }
+  
